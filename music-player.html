@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Music Player</title>
+</head>
+
+<body style="margin:0">
+
+<audio
+id="bgMusic"
+autoplay
+loop>
+
+<source
+src="NIKI - You ll Be in My Heart.mp3"
+type="audio/mpeg">
+
+</audio>
+
+<script>
+
+const music =
+document.getElementById(
+"bgMusic"
+);
+
+const savedTime =
+localStorage.getItem(
+"musicTime"
+);
+
+if(savedTime){
+
+music.currentTime =
+savedTime;
+
+}
+
+music.play().catch(()=>{});
+
+setInterval(()=>{
+
+localStorage.setItem(
+"musicTime",
+music.currentTime
+);
+
+},1000);
+
+</script>
+
+</body>
+</html>
